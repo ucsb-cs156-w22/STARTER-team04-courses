@@ -166,6 +166,7 @@ describe("utils/currentUser tests", () => {
 
         test('test some code paths when data is in currentUser', async () => {
             expect(hasRole({ data: {} }, "ROLE_ADMIN")).toBeFalsy();
+            expect(hasRole({ data: {root: null }}, "ROLE_ADMIN")).toBeFalsy();
             expect(hasRole({ data: {root: {} }}, "ROLE_ADMIN")).toBeFalsy();
             expect(hasRole({ data: {root: { rolesList: [] } }}, "ROLE_ADMIN")).toBeFalsy();
             expect(hasRole({ data: {root: { rolesList: ["ROLE_USER"] } }}, "ROLE_ADMIN")).toBeFalsy();
